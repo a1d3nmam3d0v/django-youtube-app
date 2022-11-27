@@ -17,10 +17,20 @@ class Video(models.Model):  # mapping db columns to object fields in Video class
         # Overrides django's automatic save method, and runs first.
         # extract vid ID from YT URL
 
-        if not self.url.startswith("https://www.youtube.com/watch"):
-            raise ValidationError("Not a YT URL {self.url}")
+        # if not self.url.startswith("https://www.youtube.com/watch"):
+        # raise ValidationError(f"Not a YT URL {self.url}")
 
         url_components = parse.urlparse(self.url)
+
+        if url_components.scheme != "https":
+            raise ValidationError(f"Not a YT URL {self.url}")
+
+        if url_components.netloc != "www.youtube.com":
+            raise ValidationError(f"Not a YT URL {self.url}")
+
+        if url_components.path != "/watch":
+            raise ValidationError(f"Not a YT URL {self.url}")
+
         query_string = url_components.query
         if not query_string:
             raise ValidationError(f"Invalid YT URL {self.url}")
@@ -30,9 +40,11 @@ class Video(models.Model):  # mapping db columns to object fields in Video class
 
         if not v_parameters_list:
             raise ValidationError(f"Invalid YT YRL - missing parameters {self.url}")
-        self.video_id = v_parameters_list[0]  # string 
+        self.video_id = v_parameters_list[0]  # string
 
-        super().save(*args, **kwargs) # calls django's save method to actually save data to db
+        super().save(
+            *args, **kwargs
+        )  # calls django's save method to actually save data to db
 
     def __str__(self):
         return f"ID: {self.pk}, Name: {self.name}, URL: {self.url}, Video ID: {self.video_id}, Notes: {self.notes[:200]}"
