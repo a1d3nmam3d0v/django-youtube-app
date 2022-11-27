@@ -1,0 +1,78 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+    background-color: black;
+    padding: 0.5rem;
+    z-index: 100;
+}
+
+nav a {
+    font-size: 24px;
+    color: white;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+a:hover{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.page-wrapper {
+    background: #d8c1ff;
+    text-indent: 0.5rem;
+}
+
+.search {
+    margin: 0 auto;
+    border: 3px solid black;
+    background-color: #a7a7a7;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+label {
+    padding-right: 1rem;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-name,
+.video-notes,
+.video-url {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.video-url {
+    display: block;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
