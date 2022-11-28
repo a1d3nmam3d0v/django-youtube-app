@@ -5,11 +5,15 @@
     text-transform: uppercase;
 }
 
+h1 {
+    font-size: 130px;
+}
+
 nav {
     position: fixed;
     top: 0;
     right: 0;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     width: 100%;
     background-color: black;
     padding: 0.5rem;
@@ -24,12 +28,17 @@ nav a {
 }
 
 a:hover{
+    color: blue;
+    /* color: #d8c1ff; */
     text-decoration: none;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .page-wrapper {
     background: #d8c1ff;
+
+    /* background-color: rgb(50, 104, 205); */
+    /* background-color: black; */
     text-indent: 0.5rem;
 }
 
@@ -42,7 +51,7 @@ a:hover{
 .search-form {
     display: flex;
     align-items: center;
-    margin: 1rem 0;
+    /* margin: 1rem 0; */
     padding: 1rem 0;
     justify-content: center;
     flex-wrap: wrap;
@@ -58,12 +67,15 @@ label {
     overflow: hidden;
 }
 
-.video-name,
-.video-notes,
-.video-url {
+.details-link {
     text-align: right;
     padding-right: 1rem;
+    font-size: 40px;
 }
+
+
+
+
 
 .video-url {
     display: block;

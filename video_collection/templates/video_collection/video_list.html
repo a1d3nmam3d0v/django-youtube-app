@@ -21,12 +21,10 @@
     <br />
     <br />
     <div>
-        <h2 class="video-name">{{ video.name }}</h2>
-        <h3 class="video-notes">{{ video.notes }}</h3>
         <div class="video-wrapper">
             <iframe width="420" height="315" src="https://youtube.com/embed/{{video.video_id}}"></iframe>
         </div>
-        <a class="video-url" href="{{ video.url }}">{{video.url}}</a>
+        <p class="details-link">SEE <a href="{% url 'video_details' video.pk %}"> DETAILS</a> ABOUT THIS VIDEO</p>
     </div>
 
     {% empty %}
